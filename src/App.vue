@@ -1,32 +1,38 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
-  </div>
+  <v-app id="inspire">
+
+    <v-app-bar app>
+      <v-app-bar-nav-icon @click="drawer = drawer"></v-app-bar-nav-icon>
+
+      <v-toolbar-title>Projeto Comeia (Tempo)</v-toolbar-title>
+    </v-app-bar>
+
+    <v-main>
+      <!--  -->
+      <FormBusca/>
+      <CardTempo/>
+    </v-main>
+  </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
 
-nav {
-  padding: 30px;
+  import CardTempo from './components/CardTempo.vue'
+  import FormBusca from './components/FormBusca.vue'
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  export default {
+    name: 'App',
+    components: {
+      CardTempo,
+      FormBusca
+    },
+    data: () => ({
+      links: [
+        'Dashboard',
+        'Messages',
+        'Profile',
+        'Updates',
+      ],
+    }),
   }
-}
-</style>
+</script>
